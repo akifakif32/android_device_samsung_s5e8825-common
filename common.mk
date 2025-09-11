@@ -147,8 +147,6 @@ PRODUCT_PACKAGES += \
     android.hardware.health-service.samsung \
     android.hardware.health-service.samsung-recovery
 
-$(call soong_config_set,samsungHealthVars,enable_suspend,false)
-
 # Init
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/init/fstab.s5e8825:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/fstab.s5e8825 \
