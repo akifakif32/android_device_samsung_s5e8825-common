@@ -266,6 +266,7 @@ PRODUCT_PACKAGES += powerhint.json
 # RIL
 PRODUCT_PACKAGES += \
     cbd \
+    secril_config_svc \
     sehradiomanager
 
 $(call soong_config_set,cbd,protocol,sipc)
