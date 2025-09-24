@@ -1,5 +1,5 @@
 #
-# Copyright (C) The LineageOS Project
+# Copyright (C) The Infinity-X Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -277,9 +277,6 @@ $(call soong_config_set,cbd,protocol,sipc)
 
 # Samsung DAP
 PRODUCT_PACKAGES += SamsungDAP-custom
-
-# Samsung Doze
-PRODUCT_PACKAGES += SamsungDoze
 
 # Sensors
 PRODUCT_PACKAGES += \
