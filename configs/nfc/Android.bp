@@ -10,6 +10,12 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
+    name: "libnfc-hal-st.conf",
+    src: "libnfc-hal-st.conf",
+    vendor: true,
+}
+
+prebuilt_etc {
     name: "libnfc-nxp.conf",
     src: "libnfc-nxp.conf",
     vendor: true,
