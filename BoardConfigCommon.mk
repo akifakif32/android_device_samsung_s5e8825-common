@@ -118,7 +118,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 PRODUCT_GMS_CLIENTID_BASE := android-samsung-ss
 
 # Graphics
-TARGET_USES_VULKAN := false
+TARGET_USES_VULKAN := true
 BOARD_USES_HWC_CPU_PERF_MODE := true
 
 # Kernel
@@ -137,7 +137,7 @@ BOARD_VENDOR_RAMDISK_FRAGMENTS := dlkm
 BOARD_VENDOR_RAMDISK_FRAGMENT.dlkm.KERNEL_MODULE_DIRS := top
 
 # Manifest
-DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
     $(COMMON_PATH)/configs/vintf/framework_compatibility_matrix.xml \
     hardware/samsung/vintf/samsung_framework_compatibility_matrix.xml \
 DEVICE_MANIFEST_FILE += $(COMMON_PATH)/configs/vintf/manifest.xml
