@@ -7,6 +7,10 @@ dalvik.vm.image-dex2oat-threads=6
 # Pre-Rendering
 ro.vendor.perf.scroll_opt=true
 
+# Rendering
+ro.hwui.use_vulkan=true
+debug.renderengine.backend=skiavkthreaded
+
 # Vsync
 debug.cpurend.vsync=false
 
