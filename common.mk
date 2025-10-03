@@ -153,6 +153,7 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/init/fstab.s5e8825:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.s5e8825 \
     $(COMMON_PATH)/configs/init/init.s5e8825.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.s5e8825.rc \
     $(COMMON_PATH)/configs/init/init.s5e8825.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.s5e8825.usb.rc \
+    $(COMMON_PATH)/configs/init/init.baseband.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.baseband.rc \
     $(COMMON_PATH)/configs/init/init.recovery.s5e8825.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.s5e8825.rc \
     $(COMMON_PATH)/configs/init/init.fingerprint.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.fingerprint.rc \
     $(COMMON_PATH)/configs/init/init.ril.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.ril.rc \
@@ -191,6 +192,9 @@ $(call soong_config_set,lineage_health,charging_control_charging_path,/sys/class
 $(call soong_config_set,lineage_health,fast_charge_node,/sys/class/sec/switch/afc_disable)
 $(call soong_config_set,lineage_health,fast_charge_value_none,1)
 $(call soong_config_set,lineage_health,fast_charge_value_fast_charge,0)
+
+# Live Display
+PRODUCT_PACKAGES += vendor.lineage.livedisplay-service.samsung-exynos
 
 # Log Tag
 include $(COMMON_PATH)/vendor_logtag.mk
@@ -296,6 +300,10 @@ PRODUCT_SOONG_NAMESPACES += \
 ifneq ($(wildcard packages/apps/SpeakerFX),)
 PRODUCT_PACKAGES += SpeakerFX
 endif
+
+# Thermal
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/configs/thermal/btcon.json:$(TARGET_COPY_OUT_VENDOR)/etc/btcon.json
 
 # Touch HAL
 PRODUCT_PACKAGES += vendor.lineage.touch-service.samsung

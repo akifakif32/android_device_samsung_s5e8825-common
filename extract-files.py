@@ -48,10 +48,14 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib64/hw/audio.primary.s5e8825.so': blob_fixup()
         .replace_needed('libaudioroute.so', 'libaudioroute.s5e8825.so')
         .replace_needed('libtinyalsa.so', 'libtinyalsa.s5e8825.so')
+        # FM Radio fix
         .sig_replace('E1 00 00 54 A9 02 80 52 29 80 01 B9 08 65 40 B9',
                      '1F 20 03 D5 A9 02 80 52 29 80 01 B9 08 65 40 B9')
         .sig_replace('E0 17 9F 1A FD 7B C2 A8 C0 03 5F D6',
-                     '20 00 80 52 FD 7B C2 A8 C0 03 5F D6'),
+                     '20 00 80 52 FD 7B C2 A8 C0 03 5F D6')
+        # Hardcode 'ABOX Speech Volume' value to 7 (low call volume fix)
+        .sig_replace('E0 00 00 B4 E2 03 13 2A 61 FE FF F0',
+                     'E0 00 00 B4 E2 00 80 52 61 FE FF F0'),
     # Audio - Effects
     'vendor/lib64/soundfx/libswdap.so': blob_fixup()
         .sig_replace('08 09 40 f9 00 01 3f d6',
@@ -83,8 +87,6 @@ blob_fixups: blob_fixups_user_type = {
                      '80 0E 40 F9 E1 03 16 AA 82 0C 80 52 03 00 80 D2'),
     'vendor/lib64/libVendorSemTelephonyProps.so': blob_fixup()
         .binary_regex_replace(rb'persist\.ril\.supportNrModefromCp', b'vendor.ril.supportNrModefromCp\x00'),
-    'vendor/lib64/libvkmanager_vendor.so': blob_fixup()
-        .binary_regex_replace(rb'ro\.factory\.factory_binary', b'ro.vendor.factory_binary\x00'),
     # Sensors
     'vendor/lib64/libsensorlistener.so': blob_fixup()
         .add_needed('libshim_sensorndkbridge.so'),
@@ -96,6 +98,13 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libutils-v32.so')
         .binary_regex_replace(b'_ZN7android6Thread3runEPKcim', b'_ZN7utils326Thread3runEPKcim')
         .remove_needed('libhidltransport.so'),
+    # Vaultkeeper
+    (
+        'vendor/bin/vaultkeeperd',
+        'vendor/lib64/libvkmanager_vendor.so',
+        'vendor/lib64/libvkservice.so',
+    ): blob_fixup()
+        .binary_regex_replace(rb'ro\.factory\.factory_binary', b'ro.vendor.factory_binary\x00'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
