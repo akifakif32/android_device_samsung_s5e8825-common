@@ -7,7 +7,6 @@ prebuilt_etc {
     name: "fstab.s5e8825",
     src: "fstab.s5e8825",
     vendor: true,
-    vendor_ramdisk_available: true,
 }
 
 prebuilt_etc {
@@ -48,6 +47,13 @@ prebuilt_etc {
 prebuilt_etc {
     name: "init.s5e8825.usb.rc",
     src: "init.s5e8825.usb.rc",
+    sub_dir: "init",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.sensorhub.rc",
+    src: "init.sensorhub.rc",
     sub_dir: "init",
     vendor: true,
 }

@@ -158,8 +158,10 @@ vendor/lib64/libsecnativefeature.so|eca43700e1f9ad9775d24f24e0f8b169aa2198b0
 vendor/lib64/libsemnativecarrierfeature.so|04fd039d7ef5718818cb91d4991453f457fe9896
 
 # Security - Keymint
-vendor/etc/init/android.hardware.security.keymint-service.rc:vendor/etc/init/android.hardware.security.keymint-service.samsung.rc
 vendor/lib64/vendor.samsung.hardware.keymint-V1-ndk_platform.so
+
+# Security - Keymint - Patched Init
+vendor/etc/init/android.hardware.security.keymint-service.samsung.rc|f74c12bda6b1446a61519999d06bf04f3340ba28
 
 # Security - PROCA
 vendor/app/mcRegistry/00060308060501020000000000000000.tabin
@@ -182,7 +184,6 @@ vendor/lib64/libvkmanager_vendor.so|e539d707d927ec0efb7eea2d421e60a431c336ff|f87
 vendor/lib64/libvkservice.so|85fcac9c71a05af9792adb99992acace44e27a60|fe537335d588530413f841dbed70e36bdec8b370
 
 # Sensors
-vendor/etc/init/init.sensorhub.rc
 vendor/etc/sensors/hals.conf
 vendor/lib64/sensors.grip.so
 vendor/lib64/sensors.inputvirtual.so
@@ -196,4 +197,3 @@ vendor/etc/wifi/mx140_t_common.hcf
 
 # VNDK - from prebuilts/vndk/v33 - android-15.0.0_r32
 vendor/lib64/libcrypto-tm.so;FIX_SONAME|7291c0e41fa86b3739df0c0c20de21e88f43661a|f53b9d897921ade77c511eb98955db374fcc5c69
-vendor/lib64/libssl-tm.so;FIX_SONAME|5e9bde815068909b673461066dae221dff98c978|8bacc6cc2bed44db75658dd59da1ae312a5c9a4a

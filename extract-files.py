@@ -13,9 +13,8 @@ from extract_utils.main import (
     ExtractUtilsModule,
 )
 from extract_utils.fixups_lib import (
-    lib_fixup_vendorcompat,
+    lib_fixups,
     lib_fixups_user_type,
-    libs_proto_3_9_1,
 )
 
 namespace_imports = [
@@ -32,7 +31,7 @@ def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
 
 
 lib_fixups: lib_fixups_user_type = {
-    libs_proto_3_9_1: lib_fixup_vendorcompat,
+    **lib_fixups,
     'libuuid': lib_fixup_vendor_suffix,
 }  # fmt: skip
 
@@ -70,17 +69,8 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib64/vendor.samsung.hardware.keymint-V1-ndk_platform.so': blob_fixup()
         .replace_needed('android.hardware.security.keymint-V1-ndk_platform.so',
                         'android.hardware.security.keymint-V4-ndk.so')
-        .replace_needed('android.hardware.security.secureclock-V1-ndk_platform.so',
-                        'android.hardware.security.secureclock-V1-ndk.so')
-        .replace_needed('android.hardware.security.sharedsecret-V1-ndk_platform.so',
-                        'android.hardware.security.sharedsecret-V1-ndk.so')
-        .replace_needed('libcrypto.so', 'libcrypto-tm.so')
-        .replace_needed('libssl.so', 'libssl-tm.so')
         .add_needed('android.hardware.security.rkp-V3-ndk.so')
         .add_needed('libshim_crypto.so'),
-    'vendor/etc/init/android.hardware.security.keymint-service.samsung.rc': blob_fixup()
-        .regex_replace('android\\.hardware\\.security\\.keymint-service\n',
-                       'android.hardware.security.keymint-service.samsung\n'),
     # RIL
     'vendor/lib64/libsec-ril.so': blob_fixup()
         .sig_replace('80 0E 40 F9 E1 03 16 AA 82 0C 80 52 E3 03 15 AA',

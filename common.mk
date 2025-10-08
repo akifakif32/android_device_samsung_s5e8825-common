@@ -157,6 +157,8 @@ PRODUCT_PACKAGES += \
     init.s5e8825.usb.rc \
     ueventd.s5e8825.rc
 
+PRODUCT_COPY_FILES += $(COMMON_PATH)/configs/init/fstab.s5e8825:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/fstab.s5e8825
+
 # Kernel
 PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := true
 PRODUCT_SET_DEBUGFS_RESTRICTIONS := true
@@ -174,11 +176,16 @@ PRODUCT_PACKAGES += \
     libcppbor_external.vendor \
     libkeymint.vendor
 
+<<<<<<< HEAD
+=======
+PRODUCT_PACKAGES += libshim_crypto
+
+>>>>>>> upstream/lineage-23.0
 # Kernel Modules
 PRODUCT_PACKAGES += toolbox.vendor_ramdisk
 
-# Keymint
-PRODUCT_PACKAGES += libshim_crypto
+# Libinit
+$(call soong_config_set,libinit,vendor_init_lib,//$(COMMON_PATH)/configs/init/libinit:libinit_s5e8825)
 
 # Libinit
 $(call soong_config_set,libinit,vendor_init_lib,//$(COMMON_PATH)/configs/init/libinit:libinit_s5e8825)
@@ -293,6 +300,12 @@ PRODUCT_PACKAGES += SamsungDAP-custom
 # Sensors
 PRODUCT_PACKAGES += android.hardware.sensors-service.samsung-multihal
 PRODUCT_PACKAGES += libshim_sensorndkbridge
+<<<<<<< HEAD
+=======
+
+# Sensors - Init
+PRODUCT_PACKAGES += init.sensorhub.rc
+>>>>>>> upstream/lineage-23.0
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
