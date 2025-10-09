@@ -176,11 +176,8 @@ PRODUCT_PACKAGES += \
     libcppbor_external.vendor \
     libkeymint.vendor
 
-<<<<<<< HEAD
-=======
 PRODUCT_PACKAGES += libshim_crypto
 
->>>>>>> upstream/lineage-23.0
 # Kernel Modules
 PRODUCT_PACKAGES += toolbox.vendor_ramdisk
 
@@ -300,12 +297,9 @@ PRODUCT_PACKAGES += SamsungDAP-custom
 # Sensors
 PRODUCT_PACKAGES += android.hardware.sensors-service.samsung-multihal
 PRODUCT_PACKAGES += libshim_sensorndkbridge
-<<<<<<< HEAD
-=======
 
 # Sensors - Init
 PRODUCT_PACKAGES += init.sensorhub.rc
->>>>>>> upstream/lineage-23.0
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
