@@ -66,10 +66,33 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib64/libssl-tm.so': blob_fixup()
         .replace_needed('libcrypto.so', 'libcrypto-tm.so'),
     # Keymint
-    'vendor/lib64/vendor.samsung.hardware.keymint-V1-ndk_platform.so': blob_fixup()
+    (
+        'vendor/lib64/libskeymint10device.so',
+        'vendor/lib64/libskeymint_cli.so',
+        'vendor/lib64/vendor.samsung.hardware.keymint-V1-ndk_platform.so',
+    ): blob_fixup()
         .replace_needed('android.hardware.security.keymint-V1-ndk_platform.so',
                         'android.hardware.security.keymint-V4-ndk.so')
+        .replace_needed('android.hardware.security.secureclock-V1-ndk_platform.so',
+                        'android.hardware.security.secureclock-V1-ndk.so')
+        .replace_needed('android.hardware.security.sharedsecret-V1-ndk_platform.so',
+                        'android.hardware.security.sharedsecret-V1-ndk.so')
         .add_needed('android.hardware.security.rkp-V3-ndk.so')
+        .add_needed('libshim_crypto.so')
+        .replace_needed('libcrypto.so', 'libcrypto-tm.so'),
+    'vendor/bin/hw/android.hardware.security.keymint-service.samsung': blob_fixup()
+        .replace_needed('android.hardware.security.keymint-V1-ndk_platform.so',
+                        'android.hardware.security.keymint-V3-ndk.so')
+        .replace_needed('android.hardware.security.keymint-V1-ndk_platform',
+                        'android.hardware.security.keymint-V3-ndk')
+        .replace_needed('android.hardware.security.keymint-V1-ndk',
+                        'android.hardware.security.keymint-V3-ndk')
+        .replace_needed('android.hardware.security.secureclock-V1-ndk_platform.so',
+                        'android.hardware.security.secureclock-V1-ndk.so')
+        .replace_needed('android.hardware.security.sharedsecret-V1-ndk_platform.so',
+                        'android.hardware.security.sharedsecret-V1-ndk.so')
+        .add_needed('android.hardware.security.rkp-V3-ndk.so')
+        .replace_needed('libcrypto.so', 'libcrypto-tm.so')
         .add_needed('libshim_crypto.so'),
     # RIL
     'vendor/lib64/libsec-ril.so': blob_fixup()
@@ -89,11 +112,7 @@ blob_fixups: blob_fixups_user_type = {
         .binary_regex_replace(b'_ZN7android6Thread3runEPKcim', b'_ZN7utils326Thread3runEPKcim')
         .remove_needed('libhidltransport.so'),
     # Vaultkeeper
-    (
-        'vendor/bin/vaultkeeperd',
-        'vendor/lib64/libvkmanager_vendor.so',
-        'vendor/lib64/libvkservice.so',
-    ): blob_fixup()
+    'vendor/lib64/libvkmanager_vendor.so': blob_fixup()
         .binary_regex_replace(rb'ro\.factory\.factory_binary', b'ro.vendor.factory_binary\x00'),
 }  # fmt: skip
 
