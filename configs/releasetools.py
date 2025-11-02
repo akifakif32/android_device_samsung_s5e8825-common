@@ -96,7 +96,6 @@ def OTA_InstallEnd(info):
     AddImage(info, 'vbmeta.img', '/dev/block/by-name/vbmeta')
     AddImage(info, 'vendor_boot.img', '/dev/block/by-name/vendor_boot')
     AddModelImage(info, 'SC-53C', 'dtbo_jpn', '/dev/block/by-name/dtbo')
-    AddModelImage(info, 'SCG15', 'dtbo_jpn', '/dev/block/by-name/dtbo')
 
     if 'RADIO/models' in info.input_zip.namelist():
         modelsIncluded = []
