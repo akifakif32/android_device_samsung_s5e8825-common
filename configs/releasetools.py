@@ -68,25 +68,31 @@ def AddFirmwareImage(info, model, basename, dest, simple=False, offset=8):
         return 0
 
 
-def AddModelImage(info, model, basename, dest):
-    if (
-        model
-        not in info.input_zip.read('RADIO/models')
+def AddModelImage(info, models, basename, dest):
+    model_list = models.split()
+
+    supported_models = (
+        info.input_zip.read('RADIO/models')
         .decode('utf-8', errors='ignore')
         .splitlines()
-    ):
+    )
+
+    if not any(m in supported_models for m in model_list):
         return
 
     data = info.input_zip.read('RADIO/' + basename + '.img')
     common.ZipWriteStr(info.output_zip, f'{basename}.img', data)
-    info.script.AppendExtra(
-        'ifelse(getprop("ro.boot.em.model") == "%s",' % (model)
+
+    conditions = ' || '.join(
+        f'getprop("ro.boot.em.model") == "{m}"' for m in model_list
     )
+
+    info.script.AppendExtra(f'ifelse({conditions},')
     info.script.Print(
-        'Patching {} image unconditionally...'.format(basename.split('.')[0])
+        f'Patching {basename.split(".")[0]} image unconditionally...'
     )
     info.script.AppendExtra(
-        'package_extract_file("%s.img", "%s");' % (basename, dest)
+        f'package_extract_file("{basename}.img", "{dest}");'
     )
     info.script.AppendExtra(',"");')
 
@@ -95,7 +101,7 @@ def OTA_InstallEnd(info):
     AddImage(info, 'dtbo.img', '/dev/block/by-name/dtbo')
     AddImage(info, 'vbmeta.img', '/dev/block/by-name/vbmeta')
     AddImage(info, 'vendor_boot.img', '/dev/block/by-name/vendor_boot')
-    AddModelImage(info, 'SC-53C', 'dtbo_jpn', '/dev/block/by-name/dtbo')
+    AddModelImage(info, 'SC-53C SCG15', 'dtbo_jpn', '/dev/block/by-name/dtbo')
 
     if 'RADIO/models' in info.input_zip.namelist():
         modelsIncluded = []
