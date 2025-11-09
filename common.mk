@@ -79,10 +79,6 @@ PRODUCT_PACKAGES += init.s5e8825.bluetooth.rc
 # Camera
 PRODUCT_PACKAGES += android.hardware.camera.provider-service.samsung
 
-PRODUCT_PACKAGES += \
-    libvpl \
-    libshim_camera
-
 $(call soong_config_set,samsungCameraVars,extra_ids,60)
 $(call soong_config_set,samsungCameraVars,needs_sec_reserved_field,true)
 $(call soong_config_set,samsungCameraVars,usage_64bit,true)
@@ -185,8 +181,6 @@ PRODUCT_PACKAGES += \
     lib_android_keymaster_keymint_utils.vendor \
     libcppbor_external.vendor \
     libkeymint.vendor
-
-PRODUCT_PACKAGES += libshim_crypto
 
 # Kernel Modules
 PRODUCT_PACKAGES += toolbox.vendor_ramdisk
@@ -311,7 +305,6 @@ PRODUCT_PACKAGES += SamsungDAP-custom
 
 # Sensors
 PRODUCT_PACKAGES += android.hardware.sensors-service.samsung-multihal
-PRODUCT_PACKAGES += libshim_sensorndkbridge
 
 # Sensors - Init
 PRODUCT_PACKAGES += init.s5e8825.sensors.rc
