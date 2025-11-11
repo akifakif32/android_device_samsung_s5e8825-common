@@ -79,14 +79,15 @@ PRODUCT_PACKAGES += init.s5e8825.bluetooth.rc
 # Camera
 PRODUCT_PACKAGES += android.hardware.camera.provider-service.samsung
 
-PRODUCT_PACKAGES += libvpl
-
 $(call soong_config_set,samsungCameraVars,extra_ids,60)
 $(call soong_config_set,samsungCameraVars,needs_sec_reserved_field,true)
 $(call soong_config_set,samsungCameraVars,usage_64bit,true)
 
 # Camera - Init
 PRODUCT_PACKAGES += init.s5e8825.camera.rc
+
+# Camera - Shims
+PRODUCT_PACKAGES += libvpl
 
 # Charger
 PRODUCT_PACKAGES += charger_res_images_vendor
