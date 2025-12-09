@@ -104,8 +104,6 @@ PRODUCT_PACKAGES += \
     codec2.vendor.base.policy \
     codec2.vendor.ext.policy
 
-$(call soong_config_set,openmax,legacy_mfc,true)
-
 # ConfigStore
 PRODUCT_PACKAGES += disable_configstore
 
@@ -125,15 +123,6 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # DRM
 PRODUCT_PACKAGES += android.hardware.drm-service.clearkey
-
-# EPIC
-PRODUCT_PACKAGES += \
-    libepicoperator \
-    vendor.samsung_slsi.hardware.epic@1.0-impl \
-    vendor.samsung_slsi.hardware.epic@1.0-service
-
-# EPIC - Init
-PRODUCT_PACKAGES += init.s5e8825.epic.rc
 
 # fastbootd
 PRODUCT_PACKAGES += fastbootd
