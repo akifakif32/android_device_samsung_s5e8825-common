@@ -60,7 +60,7 @@
             <name>IDrmFactory</name>
             <instance>clearkey</instance>
             <instance>widevine</instance>
-        </interface>
+    	</interface>
     </hal>
     <hal format="aidl">
         <name>android.hardware.graphics.composer3</name>
