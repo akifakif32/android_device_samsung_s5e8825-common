@@ -42,7 +42,6 @@ void set_device_props(const device_info_t device) {
   }
   if (device.udfps) {
     property_override("ro.vendor.fingerprint.type", "udfps_optical");
-    property_override("ro.vendor.fingerprint.sensor_location", "540|2092|118");
     property_override("ro.vendor.fingerprint.force_calibrate", "true");
     property_override("ro.vendor.fingerprint.request_touch_event", "true");
   }
