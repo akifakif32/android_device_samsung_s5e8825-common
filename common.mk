@@ -145,9 +145,6 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 # DRM
 PRODUCT_PACKAGES += android.hardware.drm-service.clearkey
 
-# fastbootd
-PRODUCT_PACKAGES += fastbootd
-
 # Fingerprint
 PRODUCT_PACKAGES += android.hardware.biometrics.fingerprint-service.s5e8825
 
