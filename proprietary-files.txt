@@ -156,7 +156,6 @@ vendor/lib64/libvkmanager_vendor.so|bc65170c3207a897e29f7c3ee4c590b733db5de2|78c
 # Security - Keymint
 vendor/lib64/libskeymint10device.so
 vendor/lib64/libskeymint_cli.so
-vendor/lib64/vendor.samsung.hardware.keymint-V1-ndk_platform.so
 
 # Security - TEEgris
 vendor/bin/tzdaemon
