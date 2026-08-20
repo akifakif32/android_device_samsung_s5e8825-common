@@ -72,6 +72,8 @@ blob_fixups: blob_fixups_user_type = {
     # DRM Widevine
     'vendor/lib64/libwvaidl.so': blob_fixup()
         .replace_needed('libprotobuf-cpp-lite-3.9.1.so', 'libprotobuf-cpp-full-3.9.1.so'),
+    # GPS
+    'vendor/bin/hw/gpsd': blob_fixup().binary_regex_replace(b'libcrypto.so', b'libcryptx.so'),
     # libssl
     'vendor/lib64/libssl-tm.so': blob_fixup()
         .replace_needed('libcrypto.so', 'libcrypto-tm.so'),
