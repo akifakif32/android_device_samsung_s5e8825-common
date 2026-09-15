@@ -305,6 +305,9 @@ $(call soong_config_set,cbd,protocol,sipc)
 # RIL - Radio Configuration
 PRODUCT_PACKAGES += sehradiomanager.conf
 
+# RIL - IMS
+$(call inherit-product, hardware/lineage/generic-ims/ims.mk)
+
 # RIL - Init
 PRODUCT_PACKAGES += init.s5e8825.ril.rc
 
