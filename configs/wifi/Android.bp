@@ -11,13 +11,6 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "wpa_supplicant.conf",
-    src: "wpa_supplicant.conf",
-    sub_dir: "wifi",
-    vendor: true,
-}
-
-prebuilt_etc {
     name: "wpa_supplicant_overlay.conf",
     src: "wpa_supplicant_overlay.conf",
     sub_dir: "wifi",
