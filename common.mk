@@ -318,6 +318,8 @@ PRODUCT_PACKAGES += SamsungDoze
 # Samsung Proximity Helper
 PRODUCT_PACKAGES += SamsungProximityHelper
 
+# Security - Keymint
+PRODUCT_PACKAGES += android.hardware.security.keymint-service.samsung
 
 # Sensors
 PRODUCT_PACKAGES += android.hardware.sensors-service.samsung-multihal
