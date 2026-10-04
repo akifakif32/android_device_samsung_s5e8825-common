@@ -89,8 +89,10 @@ PRODUCT_PACKAGES += \
     libbt-vendor:64
 
 PRODUCT_COPY_FILES += \
-    hardware/samsung_slsi/libbt/conf/bt_did.conf:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth/bt_did.conf \
     hardware/samsung_slsi/libbt/conf/bt_vendor.conf:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth/bt_vendor.conf
+
+# Bluetooth - Configuration
+PRODUCT_PACKAGES += bt_did.slsi.conf
 
 # Bluetooth - Init
 PRODUCT_PACKAGES += init.s5e8825.bluetooth.rc
