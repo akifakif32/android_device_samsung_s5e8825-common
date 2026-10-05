@@ -197,6 +197,9 @@ PRODUCT_PACKAGES += \
 # Kernel Modules
 PRODUCT_PACKAGES += toolbox.vendor_ramdisk
 
+# Keymint
+PRODUCT_PACKAGES += libshim_crypto
+
 # Libinit
 $(call soong_config_set,libinit,vendor_init_lib,//$(COMMON_PATH)/configs/init/libinit:libinit_s5e8825)
 
