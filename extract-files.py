@@ -47,34 +47,11 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib64/libssl-tm.so': blob_fixup()
         .replace_needed('libcrypto.so', 'libcrypto-tm.so'),
     # Keymint
-    (
-        'vendor/lib64/libskeymint10device.so',
-        'vendor/lib64/libskeymint_cli.so',
-        'vendor/lib64/vendor.samsung.hardware.keymint-V1-ndk_platform.so',
-    ): blob_fixup()
+    'vendor/lib64/vendor.samsung.hardware.keymint-V1-ndk_platform.so': blob_fixup()
         .replace_needed('android.hardware.security.keymint-V1-ndk_platform.so',
                         'android.hardware.security.keymint-V4-ndk.so')
-        .replace_needed('android.hardware.security.secureclock-V1-ndk_platform.so',
-                        'android.hardware.security.secureclock-V1-ndk.so')
-        .replace_needed('android.hardware.security.sharedsecret-V1-ndk_platform.so',
-                        'android.hardware.security.sharedsecret-V1-ndk.so')
         .add_needed('android.hardware.security.rkp-V3-ndk.so')
         .add_needed('libbase_shim.so')
-        .add_needed('libshim_crypto.so')
-        .replace_needed('libcrypto.so', 'libcrypto-tm.so'),
-    'vendor/bin/hw/android.hardware.security.keymint-service.samsung': blob_fixup()
-        .replace_needed('android.hardware.security.keymint-V1-ndk_platform.so',
-                        'android.hardware.security.keymint-V3-ndk.so')
-        .replace_needed('android.hardware.security.keymint-V1-ndk_platform',
-                        'android.hardware.security.keymint-V3-ndk')
-        .replace_needed('android.hardware.security.keymint-V1-ndk',
-                        'android.hardware.security.keymint-V3-ndk')
-        .replace_needed('android.hardware.security.secureclock-V1-ndk_platform.so',
-                        'android.hardware.security.secureclock-V1-ndk.so')
-        .replace_needed('android.hardware.security.sharedsecret-V1-ndk_platform.so',
-                        'android.hardware.security.sharedsecret-V1-ndk.so')
-        .add_needed('android.hardware.security.rkp-V3-ndk.so')
-        .replace_needed('libcrypto.so', 'libcrypto-tm.so')
         .add_needed('libshim_crypto.so'),
     # RIL
     'vendor/lib64/libVendorSemTelephonyProps.so': blob_fixup()

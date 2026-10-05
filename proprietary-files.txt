@@ -154,9 +154,6 @@ vendor/lib64/libsemnativecarrierfeature.so|3a8102145028c96e7120ca5cb49b56b0f4b91
 vendor/lib64/libvkmanager_vendor.so|bc65170c3207a897e29f7c3ee4c590b733db5de2|78c51eca85aa0ff01953c84f0c87c0b767d7030a
 
 # Security - Keymint
-vendor/bin/hw/android.hardware.security.keymint-service:vendor/bin/hw/android.hardware.security.keymint-service.samsung;DISABLE_DEPS
-vendor/lib64/libskeymint10device.so
-vendor/lib64/libskeymint_cli.so
 vendor/lib64/vendor.samsung.hardware.keymint-V1-ndk_platform.so
 
 # Security - Keymint - Patched Init
