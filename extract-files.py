@@ -59,6 +59,9 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('android.hardware.security.rkp-V3-ndk.so')
         .add_needed('libbase_shim.so')
         .add_needed('libshim_crypto.so'),
+    'vendor/etc/init/android.hardware.security.keymint-service.samsung.rc': blob_fixup()
+        .regex_replace('android\\.hardware\\.security\\.keymint-service\n',
+                       'android.hardware.security.keymint-service.samsung\n'),
     # RIL
     'vendor/lib64/libVendorSemTelephonyProps.so': blob_fixup()
         .binary_regex_replace(rb'persist\.ril\.supportNrModefromCp', b'vendor.ril.supportNrModefromCp\x00'),
