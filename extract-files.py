@@ -46,22 +46,6 @@ blob_fixups: blob_fixups_user_type = {
     # libssl
     'vendor/lib64/libssl-tm.so': blob_fixup()
         .replace_needed('libcrypto.so', 'libcrypto-tm.so'),
-    # Keymint
-    'vendor/lib64/vendor.samsung.hardware.keymint-V1-ndk_platform.so': blob_fixup()
-        .replace_needed('android.hardware.security.keymint-V1-ndk_platform.so',
-                        'android.hardware.security.keymint-V4-ndk.so')
-        .replace_needed('android.hardware.security.secureclock-V1-ndk_platform.so',
-                        'android.hardware.security.secureclock-V1-ndk.so')
-        .replace_needed('android.hardware.security.sharedsecret-V1-ndk_platform.so',
-                        'android.hardware.security.sharedsecret-V1-ndk.so')
-        .replace_needed('libcrypto.so', 'libcrypto-tm.so')
-        .replace_needed('libssl.so', 'libssl-tm.so')
-        .add_needed('android.hardware.security.rkp-V3-ndk.so')
-        .add_needed('libbase_shim.so')
-        .add_needed('libshim_crypto.so'),
-    'vendor/etc/init/android.hardware.security.keymint-service.samsung.rc': blob_fixup()
-        .regex_replace('android\\.hardware\\.security\\.keymint-service\n',
-                       'android.hardware.security.keymint-service.samsung\n'),
     # RIL
     'vendor/lib64/libVendorSemTelephonyProps.so': blob_fixup()
         .binary_regex_replace(rb'persist\.ril\.supportNrModefromCp', b'vendor.ril.supportNrModefromCp\x00'),

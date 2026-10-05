@@ -153,10 +153,6 @@ vendor/lib64/libengmode_client.so|29f285027dc728d20eaa794d9f39a2fcdb4dd90c
 vendor/lib64/libsemnativecarrierfeature.so|3a8102145028c96e7120ca5cb49b56b0f4b91f32
 vendor/lib64/libvkmanager_vendor.so|bc65170c3207a897e29f7c3ee4c590b733db5de2|78c51eca85aa0ff01953c84f0c87c0b767d7030a
 
-# Security - Keymint
-vendor/etc/init/android.hardware.security.keymint-service.rc:vendor/etc/init/android.hardware.security.keymint-service.samsung.rc
-vendor/lib64/vendor.samsung.hardware.keymint-V1-ndk_platform.so
-
 # Security - TEEgris
 vendor/bin/tzdaemon
 vendor/bin/tzts_daemon
@@ -177,6 +173,3 @@ vendor/firmware/wifi/mx140_t_common.hcf
 
 # Wi-Fi - Init
 vendor/etc/init/wifi_slsi.rc
-
-# VNDK - from prebuilts/vndk/v33 - android-15.0.0_r32
-vendor/lib64/libcrypto-tm.so;FIX_SONAME|7291c0e41fa86b3739df0c0c20de21e88f43661a|f53b9d897921ade77c511eb98955db374fcc5c69
