@@ -70,6 +70,9 @@ exynos-wow.ko
 exynos-bcm.ko
 exynos_thermal.ko
 exynos_devfreq.ko
+exynos-btsops8825.ko
+exynos-bts.ko
+exynos_gpex.ko
 xperf.ko
 mcu_ipc.ko
 cpif_page.ko
@@ -77,8 +80,6 @@ exynos_dit.ko
 usb_f_dm.ko
 direct_dm.ko
 hook.ko
-exynos-btsops8825.ko
-exynos-bts.ko
 cpif.ko
 gnss_mbox.ko
 gnssif.ko
@@ -101,6 +102,7 @@ exyswd-rng.ko
 samsung_iommu.ko
 samsung-iommu-group.ko
 samsung-secure-iova.ko
+gpu-sched.ko
 dev_ril_bridge.ko
 sec_debug_mode.ko
 sec_panel_notifier_v2.ko
@@ -113,10 +115,12 @@ mcd-panel-decon.ko
 exynos-drm-decon.ko
 mcd-panel-samsung-helper-decon.ko
 mcd-panel-samsung-drv-decon.ko
+panfrost.ko
 mali_kbase.ko
 mali_kbase_r32p1.ko
 mali_kbase_r38p1.ko
 mali_kbase_r44p1.ko
+mali_kbase_r54p3.ko
 scsc_logring.ko
 scsc_platform_mif.ko
 scsc_mx.ko
@@ -139,12 +143,6 @@ spidev.ko
 spi-s3c64xx.ko
 smsc.ko
 cfg80211.ko
-mac80211.ko
-mt76.ko
-mt76-usb.ko
-mt76-connac-lib.ko
-mt7921-common.ko
-mt7921u.ko
 scsc_wlan.ko
 asix.ko
 ax88179_178a.ko
