@@ -145,7 +145,7 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_PACKAGES += android.hardware.drm-service.clearkey
 
 # Fingerprint
-PRODUCT_PACKAGES += android.hardware.biometrics.fingerprint-service.s5e8825
+PRODUCT_PACKAGES += android.hardware.biometrics.fingerprint-service.samsung
 
 # Fingerprint - Init
 PRODUCT_PACKAGES += init.s5e8825.fingerprint.rc

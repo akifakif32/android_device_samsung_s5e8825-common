@@ -11,3 +11,8 @@ allow hal_fingerprint_default sysfs_touchscreen_writable:file { getattr open rea
 allow hal_fingerprint_default uhid_device:chr_file rw_file_perms;
 
 r_dir_file(hal_fingerprint_default, efs_file);
+allow hal_fingerprint_default efs_file:file read;
+allow hal_fingerprint_default efs_file:dir search;
+allow hal_fingerprint_default sec_efs_file:dir search;
+allow hal_fingerprint_default sec_efs_file:file { getattr open read };
+allow hal_fingerprint_default sysfs_lcd_writable:file { open read };
