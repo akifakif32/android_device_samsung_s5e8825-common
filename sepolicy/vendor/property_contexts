@@ -21,3 +21,6 @@ ro.vendor.factory_binary            u:object_r:vendor_vaultkeeper_prop:s0
 
 # Wlan
 vendor.wlan.                        u:object_r:vendor_wlan_prop:s0
+
+# IMS
+vendor.ril.ims.                u:object_r:vendor_ims_prop:s0

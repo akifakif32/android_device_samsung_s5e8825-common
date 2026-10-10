@@ -223,7 +223,8 @@ PRODUCT_PACKAGES += \
     SettingsOverlayCommon \
     SystemUIOverlayCommon \
     TelephonyOverlayCommon \
-    WiFiOverlayCommon
+    WiFiOverlayCommon \
+    ImsStackOverlay
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
@@ -298,7 +299,14 @@ $(call soong_config_set,cbd,protocol,sipc)
 PRODUCT_PACKAGES += sehradiomanager.conf
 
 # RIL - IMS
-$(call inherit-product, hardware/lineage/generic-ims/ims.mk)
+$(call inherit-product, packages/modules/ImsMedia/imsmedia.mk)
+$(call inherit-product, packages/apps/CarrierSettings/carrier_settings.mk)
+
+PRODUCT_PACKAGES += \
+    ImsStack \
+    Iwlan \
+    QualifiedNetworksService \
+    android.hardware.telephony.ims.prebuilt.xml
 
 # RIL - Init
 PRODUCT_PACKAGES += init.s5e8825.ril.rc
@@ -369,3 +377,5 @@ PRODUCT_PACKAGES += init.s5e8825.wifi.rc
 
 # Vibrator
 PRODUCT_PACKAGES += android.hardware.vibrator-service.samsung
+
+TARGET_PRODUCT_PROP += $(COMMON_PATH)/configs/props/product.prop
