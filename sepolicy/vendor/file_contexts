@@ -46,10 +46,6 @@
 /efs/usb_hw_param(/.*)?                                                                     u:object_r:sec_efs_file:s0
 /efs/wv.keys                                                                                u:object_r:sec_efs_file:s0
 
-# Fingerprint
-/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint-service\.s5e8825  u:object_r:hal_fingerprint_default_exec:s0
-/dev/goodix_fp                                                                              u:object_r:fingerprint_device:s0
-
 # FM Radio
 /dev/radio0                                                                                 u:object_r:fm_device:s0
 
@@ -74,9 +70,7 @@
 /sys/devices/virtual/net(/.*)/mtu                                                           u:object_r:sysfs_net_mtu_writable:s0
 
 # NFC
-/(vendor|system/vendor)/bin/hw/android\.hardware\.nfc-service\.st                           u:object_r:hal_nfc_default_exec:s0
 /dev/pn547                                                                                  u:object_r:nxp_nfc_device:s0
-/dev/st21nfc                                                                                u:object_r:nfc_device:s0
 
 # Secmem
 /dev/s5p-smem                                                                               u:object_r:secmem_device:s0
